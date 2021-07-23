@@ -11,3 +11,21 @@ Once it finds the best option, it allows the user to executes a smart contract u
 ## Purpose
 
 This is the practical part of an investigation project made for the University of Belgrano where we explore, the arbitrage strategy on the crypto environment, more specifically DeFi.
+
+## Stack
+
+* Python3 with FastAPI
+* Docker + Docker-compose
+* AlpineLinux (SO of the docker images)
+* Solid + Etherum testnet
+* VueJS
+
+
+## Progress
+
+- [ ] BE, Create base boilderplate.
+- [ ] BE, Add hooks to the exchanges APIS.
+- [ ] BE, Add endpoint that accepts a certain crypto pair.
+- [ ] BE, Modify previous endpoint as to receive settings such as: wallet address, dry run, api keys.
+- [ ] BE, Create Smart contract that handles the transaction.
+- [ ] FE, Add interface that allows easy user input.
