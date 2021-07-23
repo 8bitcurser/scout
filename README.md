@@ -20,6 +20,10 @@ This is the practical part of an investigation project made for the University o
 * Solid + Etherum testnet
 * VueJS
 
+## Dependencies (So far)
+
+* Python3, Pip3
+
 
 ## Progress
 
