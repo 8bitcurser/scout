@@ -23,7 +23,7 @@ This is the practical part of an investigation project made for the University o
 
 ## Progress
 
-- [ ] BE, Create base boilderplate.
+- [x] BE, Create base boilderplate.
 - [ ] BE, Add hooks to the exchanges APIS.
 - [ ] BE, Add endpoint that accepts a certain crypto pair.
 - [ ] BE, Modify previous endpoint as to receive settings such as: wallet address, dry run, api keys.
