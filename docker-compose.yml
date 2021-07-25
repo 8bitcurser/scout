@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  scout:
+    tty: true
+    ports:
+      - "8000:8000"
+    command: uvicorn app/main:app --reload
+    build:
+      dockerfile: Dockerfile
+      context: .
