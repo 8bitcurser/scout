@@ -5,7 +5,7 @@ services:
     tty: true
     ports:
       - "8000:8000"
-    command: uvicorn app/main:app --reload
+    command: uvicorn main:app --reload --app-dir app --host 0.0.0.0
     build:
       dockerfile: Dockerfile
       context: .
