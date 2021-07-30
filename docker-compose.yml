@@ -1,11 +1,20 @@
 version: '3'
 
 services:
-  scout:
+  scout-be:
     tty: true
     ports:
       - "8000:8000"
-    command: uvicorn main:app --reload --app-dir backend/app --host 0.0.0.0
+    command: uvicorn main:app --reload --app-dir app --host 0.0.0.0
     build:
-      dockerfile: backend/Dockerfile
-      context: .
+      dockerfile: Dockerfile
+      context: backend
+  
+  scout-fe:
+    tty: true
+    ports:
+      - "8080:8080"
+    command: npm run serve
+    build:
+      dockerfile: Dockerfile
+      context: frontend
