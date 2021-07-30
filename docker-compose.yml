@@ -7,5 +7,5 @@ services:
       - "8000:8000"
     command: uvicorn main:app --reload --app-dir backend/app --host 0.0.0.0
     build:
-      dockerfile: Dockerfile
+      dockerfile: backend/Dockerfile
       context: .
