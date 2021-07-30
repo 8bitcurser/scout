@@ -22,7 +22,7 @@ This is the practical part of an investigation project made for the University o
 
 ## Dependencies (So far)
 
-* Python3, Pip3
+* Docker, Docker-compose
 
 
 ## Progress
@@ -33,3 +33,12 @@ This is the practical part of an investigation project made for the University o
 - [ ] BE, Modify previous endpoint as to receive settings such as: wallet address, dry run, api keys.
 - [ ] BE, Create Smart contract that handles the transaction.
 - [ ] FE, Add interface that allows easy user input.
+
+
+## Building the project
+
+1. Clone the project
+2. Build the project with `docker-compose build && docker-compose up`
+3. Head in your browser to `localhost:8000` the output should be a  `{}`
+4. Head in your browswer to `localhost:8080` the output should be the vue.js home site.
+
