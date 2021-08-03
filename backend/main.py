@@ -1,8 +1,11 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
-from integrations.uni import uniswap
+from json import dumps
+
 from helpers import token_addresses
+from integrations.sushi import Sushi
+from integrations.uni import uniswap
 
 
 app = FastAPI()
@@ -39,8 +42,41 @@ async def price(token_1: str, token_2: str):
         token_1_addr, token_2_addr, min_unit_of_token_multiplier
     )
     # conversion to decimal unit
-    sanitized_res = uni_res / min_unit_of_token_multiplier
+    uni_res = uni_res / min_unit_of_token_multiplier
+    # Sushiswap obtention
+    sushi = Sushi()
+    sushi_pairs = sushi.get_all_pairs()
+
+    # Pairs in uniswap are not necessarily generated in a particular order
+    # therefor usdt/usdc could be swapped into usdc/usdt but only 1 pair with
+    # both contracts will exist.
+    look_pair = [
+        pair for pair in sushi_pairs
+        if (
+            pair['Token_1_symbol'].lower() == token_1.lower() and
+            pair['Token_2_symbol'].lower() == token_2.lower()
+        ) or (
+            pair['Token_2_symbol'].lower() == token_1.lower() and
+            pair['Token_1_symbol'].lower() == token_2.lower()
+        ) 
+    ]
+
+
+    if look_pair:
+        if len(look_pair) == 1:
+            # As pairs are not necessarily in the correct order the prices aren't either
+            # we need to divide in the proper order.
+            if look_pair[0]["Token_1_symbol"].lower() == token_1.lower():
+                sushi_res = look_pair[0]["Token_1_price"] / look_pair[0]["Token_2_price"]
+            else:
+                sushi_res = look_pair[0]["Token_2_price"] / look_pair[0]["Token_1_price"]
+        else:
+            sushi_res = "Too many results"
+    else:
+        sushi_res = None
+
     res = {
-        'uniswap': f'{token_1} vs {token_2} = {sanitized_res}'
+        'uniswap': f'{token_1} vs {token_2} = {uni_res}',
+        'sushiswap': f'{token_1} vs {token_2} = {sushi_res}'
     }
-    return res
+    return dumps(res)

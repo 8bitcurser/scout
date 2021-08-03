@@ -10,11 +10,11 @@ services:
       dockerfile: Dockerfile
       context: backend
   
-  # scout-fe:
-  #   tty: true
-  #   ports:
-  #     - "8080:8080"
-  #   command: npm run serve
-  #   build:
-  #     dockerfile: Dockerfile
-  #     context: frontend
+  scout-fe:
+    tty: true
+    ports:
+      - "8080:8080"
+    command: npm run serve
+    build:
+      dockerfile: Dockerfile
+      context: frontend
