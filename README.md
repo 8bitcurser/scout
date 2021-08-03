@@ -19,6 +19,7 @@ This is the practical part of an investigation project made for the University o
 * AlpineLinux (SO of the docker images)
 * Solid + Etherum testnet
 * VueJS
+* Infura for W3 integration
 
 ## Dependencies (So far)
 
