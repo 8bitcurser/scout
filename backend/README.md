@@ -1,0 +1,37 @@
+## Mounting the project for development
+
+1. Create python virtual environment `python3 -m venv env`
+2. Activate it `source ./env/bin/activate`
+3. Build requirements `pip3 -m requirements.txt`
+3. Run project from within backend folder `uvicorn main:app --reload`
+
+
+## Current endpoints
+
+### Root: [GET] /
+
+This is the root endpoint, it returns an empty json object. Can be accessed through
+`localhost:8000/`
+
+### Prices of a pair per exchange: [GET] /price/{token1_symbol}/{token2_symbol}
+
+By passing two symbols such as:
+
+- ETH
+- USDT
+- USDC
+- DAI
+
+The user may obtain the exchange rate of the pair.
+
+(The exchange rait meaning at which price will I be able to buy token2 having token1.)
+
+**Sample Response**:
+
+```json
+{
+    "uniswap": "{token1} vs {token2} = X",
+    "sushiswap": "{token1} vs {token2} = X",
+    "pancakeswap: "{token1} vs {token2} = X",
+}
+```

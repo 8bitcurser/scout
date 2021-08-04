@@ -30,10 +30,20 @@ This is the practical part of an investigation project made for the University o
 
 - [x] BE, Create base boilderplate.
 - [ ] BE, Add hooks to the exchanges APIS.
-- [ ] BE, Add endpoint that accepts a certain crypto pair.
+- [x] BE, Add endpoint that accepts a certain crypto pair.
 - [ ] BE, Modify previous endpoint as to receive settings such as: wallet address, dry run, api keys.
 - [ ] BE, Create Smart contract that handles the transaction.
 - [ ] FE, Add interface that allows easy user input.
+
+
+## Integrations
+
+- [x] Sushiswap
+- [x] Uniswap
+- [x] Pancakeswap
+- [ ] Waultswap
+- [ ] Polycat
+- [ ] Polygon
 
 
 ## Building the project
@@ -42,4 +52,5 @@ This is the practical part of an investigation project made for the University o
 2. Build the project with `docker-compose build && docker-compose up`
 3. Head in your browser to `localhost:8000` the output should be a  `{}`
 4. Head in your browswer to `localhost:8080` the output should be the vue.js home site.
+
 
