@@ -1,8 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
-from json import dumps
-
 from helpers import token_addresses
 
 from integrations.pancake import Pancake
@@ -61,4 +59,4 @@ async def price(token_1: str, token_2: str):
         'sushiswap': f'{token_1} vs {token_2} = {sushi_res}',
         'pancakeswap': f'{token_1} vs {token_2} = {pancake_res}'
     }
-    return dumps(res)
+    return res

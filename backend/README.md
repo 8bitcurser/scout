@@ -10,21 +10,31 @@
 
 ### Root: [GET] /
 
-This is the root endpoint, it returns an empty json object. Can be accessed through
-`localhost:8000/`
+This is the root endpoint, it returns an empty json object.
+
+*Can be accessed through*: `localhost:8000/`
+
+**Sample response**:
+
+```json
+    {}
+```
+
 
 ### Prices of a pair per exchange: [GET] /price/{token1_symbol}/{token2_symbol}
 
 By passing two symbols such as:
 
-- ETH
-- USDT
-- USDC
-- DAI
+* ETH
+* USDT
+* USDC
+* DAI
 
-The user may obtain the exchange rate of the pair.
+The user may obtain the exchange rate of a given pair.
 
-(The exchange rait meaning at which price will I be able to buy token2 having token1.)
+> The exchange rait meaning at which price will I be able to buy token2 having token1.
+
+*Can be accessed through*: `localhost:8000/price/USDT/USDC`
 
 **Sample Response**:
 
@@ -32,6 +42,6 @@ The user may obtain the exchange rate of the pair.
 {
     "uniswap": "{token1} vs {token2} = X",
     "sushiswap": "{token1} vs {token2} = X",
-    "pancakeswap: "{token1} vs {token2} = X",
+    "pancakeswap": "{token1} vs {token2} = X",
 }
 ```
