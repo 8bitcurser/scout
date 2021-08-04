@@ -31,7 +31,7 @@ async def root(req: Request):
 
 @app.get('/price/{token_1}/{token_2}')
 async def price(token_1: str, token_2: str):
-    """Return price for two given tickers"""
+    """Return exchange price for two given tickers on different platforms."""
     token_1_settings = token_addresses.get(token_1.lower(), '')
     token_2_settings = token_addresses.get(token_2.lower(), '')
     token_1_addr = token_1_settings[0]
@@ -62,7 +62,6 @@ async def price(token_1: str, token_2: str):
             pair['Token_1_symbol'].lower() == token_2.lower()
         ) 
     ]
-
 
     if look_pair:
         if len(look_pair) == 1:
