@@ -4,6 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from json import dumps
 
 from helpers import token_addresses
+
+from integrations.pancake import Pancake
 from integrations.sushi import Sushi
 from integrations.uni import uniswap
 
@@ -75,8 +77,13 @@ async def price(token_1: str, token_2: str):
     else:
         sushi_res = None
 
+    pancake = Pancake()
+    token_1_bep_addr = pancake.get_token(token_1.lower())
+    token_2_bep_addr = pancake.get_token(token_2.lower())
+    pancake_res = pancake.get_pair(token_1_bep_addr, token_2_bep_addr)
     res = {
         'uniswap': f'{token_1} vs {token_2} = {uni_res}',
-        'sushiswap': f'{token_1} vs {token_2} = {sushi_res}'
+        'sushiswap': f'{token_1} vs {token_2} = {sushi_res}',
+        'pancakeswap': f'{token_1} vs {token_2} = {pancake_res}'
     }
     return dumps(res)
