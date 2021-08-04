@@ -20,6 +20,7 @@ This is the root endpoint, it returns an empty json object.
     {}
 ```
 
+-----
 
 ### Prices of a pair per exchange: [GET] /price/{token1_symbol}/{token2_symbol}
 
@@ -45,3 +46,11 @@ The user may obtain the exchange rate of a given pair.
     "pancakeswap": "{token1} vs {token2} = X",
 }
 ```
+
+## Next Steps:
+
+- [ ] Allow users to input their wallet addresses.
+- [ ] Add tests.
+- [ ] Include Smart Contract integration.
+- [ ] Endpoint for executing transactions at the possible platforms.
+- [ ] Metamask integration. 
