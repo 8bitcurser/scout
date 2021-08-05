@@ -6,7 +6,7 @@ class Pancake:
     def __init__(self, *args, **kwargs):
         self.base_url = 'https://api.pancakeswap.info/api/v2/{action}'
 
-    def get_pair(self, token_1, token_2):
+    async def get_pair(self, token_1, token_2):
         tokens_url = self.base_url.format(action='tokens')
         tokens_1_url = f"{tokens_url}/{token_1}"
         tokens_2_url = f"{tokens_url}/{token_2}"

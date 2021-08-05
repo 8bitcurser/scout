@@ -6,7 +6,7 @@ class Sushi:
     def __init__(self, *args, **kwargs):
         self.base_url = 'https://api2.sushipro.io?action={}'
 
-    def get_pairs(self, token_1, token_2):
+    async def get_pairs(self, token_1, token_2):
         all_pairs_url = self.base_url.format('all_pairs')
         res = get(all_pairs_url)
         if res.status_code == 200:
