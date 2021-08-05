@@ -1,9 +1,10 @@
 ## Mounting the project for development
 
 1. Create python virtual environment `python3 -m venv env`
-2. Activate it `source ./env/bin/activate`
-3. Build requirements `pip3 -m requirements.txt`
-3. Run project from within backend folder `uvicorn main:app --reload`
+2. Create a .env file the backend folder with the following statement `PROVIDER={YOUR w3 PROVIDER URL}`
+3. Activate it `source ./env/bin/activate`
+4. Build requirements `pip3 -m requirements.txt`
+5. Run project from within backend folder `uvicorn main:app --reload`
 
 
 ## Current endpoints
