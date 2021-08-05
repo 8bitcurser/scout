@@ -9,6 +9,8 @@ services:
     build:
       dockerfile: Dockerfile
       context: backend
+    env_file:
+      - ./backend/.env
   
   scout-fe:
     tty: true
