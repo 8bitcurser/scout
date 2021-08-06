@@ -1,11 +1,9 @@
 from json import dumps, loads
-from re import search
 from time import sleep
 
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from requests import get
 
 from integrations.etherscan import Ether
 from integrations.pancake import Pancake
@@ -61,8 +59,8 @@ async def seed_tokens():
 @app.get('/price/{token_1}/{token_2}')
 async def price(token_1: str, token_2: str):
     """Return exchange price for two given tickers on different platforms."""
-    token_1 = token_1.lower()
-    token_2 = token_2.lower()
+    token_1 = token_1.upper()
+    token_2 = token_2.upper()
 
     sushi = Sushi()
     uni = Uni()
@@ -75,15 +73,17 @@ async def price(token_1: str, token_2: str):
         token_1_settings = sanitized_addresses_dict.get(token_1, {})
         token_2_settings = sanitized_addresses_dict.get(token_2, {})
 
-        token_1_addr = token_1_settings.get('contract')
-        token_2_addr = token_2_settings.get('contract')
+        token_1_addr = token_1_settings.get('address')
+        token_2_addr = token_2_settings.get('address')
+        token_1_uni_address = uni.get_token(token_1_addr).address
+        token_2_uni_address = uni.get_token(token_2_addr).address
         # for more details on this look at
         # https://github.com/uniswap-python/uniswap-python/issues/12
         # and https://github.com/uniswap-python/uniswap-python/issues/41
         min_unit_of_token_multiplier = 10**token_1_settings.get('decimals')
         # Uniswap obtention
         uni_res = await uni.get_pair_price(
-            token_1_addr, token_2_addr, min_unit_of_token_multiplier
+            token_1_uni_address, token_2_uni_address, min_unit_of_token_multiplier
         )
         # Sushiswap obtention    
         sushi_res = await sushi.get_pairs(token_1, token_2)

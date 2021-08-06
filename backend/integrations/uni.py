@@ -19,3 +19,7 @@ class Uni:
             token_1_addr, token_2_addr, min_unit_of_token_multiplier
         )
         return ret
+
+    def get_token(self, token_address):
+        ret = self.uniswap.get_token(token_address)
+        return ret

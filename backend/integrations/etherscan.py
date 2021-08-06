@@ -3,6 +3,7 @@ from re import search
 from bs4 import BeautifulSoup
 from requests import get
 
+from integrations.uni import Uniswap
 
 class Ether:
     '''Etherscan adaptor.'''
@@ -26,6 +27,8 @@ class Ether:
         }
         self.anchors = []
         self.tokens = {}
+        self.uni = Uniswap(address=None, private_key=None)
+
 
     def get_page(self, num=1):
         """Retrieves a etherscan page as a Soup object."""
@@ -67,11 +70,15 @@ class Ether:
             if symbol is not None:
                 symbol = symbol.group(0)
                 address = token['href'].replace('/token/', '')
+                try:
+                    decimals = self.uni.get_token(address).decimals
+                except Exception as e:
+                    decimals = None
                 self.tokens.update(
                     {
                        symbol: {
                            'address': address,
-                           'decimals': 0,
+                           'decimals': decimals,
                        } 
                     }
                 )
