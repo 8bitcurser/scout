@@ -1,4 +1,6 @@
 from uniswap import Uniswap
+from web3 import Web3
+
 
 class Uni:
     def __init__(self, *args, **kwargs):
@@ -14,10 +16,14 @@ class Uni:
             version=self.version
         )
     
-    async def get_pair_price(self, token_1_addr, token_2_addr, min_unit_of_token_multiplier):
+    async def get_pair_price(self, token_1_addr, token_2_addr, decimals):
+        token_1_addr = Web3.toChecksumAddress(token_1_addr)
+        token_2_addr = Web3.toChecksumAddress(token_2_addr)
+
         ret = self.uniswap.get_price_input(
-            token_1_addr, token_2_addr, min_unit_of_token_multiplier
+            token_1_addr, token_2_addr, decimals
         )
+
         return ret
 
     def get_token(self, token_address):

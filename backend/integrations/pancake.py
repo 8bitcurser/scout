@@ -29,7 +29,7 @@ class Pancake:
             if token_name is not None:
                 token = [
                     token for token in ret
-                    if ret[token]['symbol'].lower() == token_name
+                    if ret[token]['symbol'] == token_name
                 ]
                 ret = token[0] if token else {}
         else:

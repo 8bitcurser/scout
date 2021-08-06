@@ -29,6 +29,7 @@ app.add_middleware(
 @app.get("/")
 async def seed_tokens():
     ether = Ether()
+    sushi = Sushi()
     main_page = ether.get_page()
     if main_page is not None:
         ether.get_anchors(main_page)
@@ -47,7 +48,8 @@ async def seed_tokens():
 
         with open('fixtures_tokens.json', 'w') as fix:
             fix.write(dumps(ether.tokens, sort_keys=True, indent=4))
-        
+        sushi.get_all_tokens()
+    
         ret = "Succesfully seeded platform with tokens"
         
     else:
@@ -80,7 +82,23 @@ async def price(token_1: str, token_2: str):
         # for more details on this look at
         # https://github.com/uniswap-python/uniswap-python/issues/12
         # and https://github.com/uniswap-python/uniswap-python/issues/41
-        min_unit_of_token_multiplier = 10**token_1_settings.get('decimals')
+        decimals_1 = token_1_settings.get('decimals')
+        decimals_2 = token_2_settings.get('decimals') 
+        
+        if decimals_1 is None or decimals_2 is None:
+            if  decimals_1 is None:
+                decimals_1 = uni.get_token(token_1_uni_address).decimals
+                sanitized_addresses_dict[token_1]['decimals'] = decimals_1
+
+            if decimals_2 is None:
+                decimals_2 = uni.get_token(token_2_uni_address).decimals
+                sanitized_addresses_dict[token_2]['decimals'] = decimals_2
+        
+            with open('fixtures_tokens.json', 'w') as fix:
+                fix.write(dumps(sanitized_addresses_dict, sort_keys=True, indent=4))
+
+        min_unit_of_token_multiplier = 10 ** decimals_1
+
         # Uniswap obtention
         uni_res = await uni.get_pair_price(
             token_1_uni_address, token_2_uni_address, min_unit_of_token_multiplier
@@ -95,7 +113,7 @@ async def price(token_1: str, token_2: str):
         pancake_res = await pancake.get_pair(token_1_bep_addr, token_2_bep_addr)
         
         # conversion to decimal unit for uniswap response
-        uni_res = uni_res / min_unit_of_token_multiplier
+        uni_res = uni_res / (10 ** decimals_2)
         res = {
             'uniswap': f'{token_1} vs {token_2} = {uni_res}',
             'sushiswap': f'{token_1} vs {token_2} = {sushi_res}',

@@ -70,15 +70,11 @@ class Ether:
             if symbol is not None:
                 symbol = symbol.group(0)
                 address = token['href'].replace('/token/', '')
-                try:
-                    decimals = self.uni.get_token(address).decimals
-                except Exception as e:
-                    decimals = None
                 self.tokens.update(
                     {
                        symbol: {
                            'address': address,
-                           'decimals': decimals,
+                           'decimals': None,
                        } 
                     }
                 )
