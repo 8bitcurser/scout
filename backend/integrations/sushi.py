@@ -57,7 +57,6 @@ class Sushi:
                 pair['Token_1_symbol'] == token_2
             ) 
         ]
-        print(look_pair)
         if look_pair:
             # As pairs are not necessarily in the correct order the prices aren't either
             # we need to divide in the proper order.
