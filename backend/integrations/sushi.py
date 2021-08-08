@@ -29,8 +29,10 @@ class Sushi:
             return "Failed to seed fixtures with sushiswap data"
 
     async def get_pairs(self, token_1, token_2):
-        with open('fixtures_tokens.json', 'r') as fix:
-            pure_tokens = loads(fix.read())
+        with open('fixtures_tokens.json', 'r') as tokens:
+            cached_fixture = loads(tokens.read())
+        
+        pure_tokens = cached_fixture
 
         address_t1 = pure_tokens[token_1]['sushi_address']
         address_t2 = pure_tokens[token_2]['sushi_address']

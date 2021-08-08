@@ -9,16 +9,17 @@
 
 ## Current endpoints
 
-### Root: [GET] /
+### Root: [GET] /seed
 
-This is the root endpoint, it returns an empty json object.
+The purpose of this endpoint is to seed the database, with the basis of the tokens fixture,
+this fixture will be progressivly updated as we call the other endpoints.
 
-*Can be accessed through*: `localhost:8000/`
+*Can be accessed through*: `localhost:8000/seed`
 
 **Sample response**:
 
 ```json
-    {}
+    {"data":"Fixtures creation is scheduled, return in around ~5 minutes."}
 ```
 
 -----

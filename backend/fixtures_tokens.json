@@ -919,6 +919,10 @@
         "address": "0xf4b54874cd8a6c863e3a904c18fda964661ec363",
         "decimals": null
     },
+    "DXT": {
+        "address": "0x8db54ca569d3019a2ba126d03c37c44b5ef81ef6",
+        "decimals": null
+    },
     "DYT": {
         "address": "0x740623d2c797b7D8D1EcB98e9b4Afcf99Ec31E14",
         "decimals": null
@@ -1772,7 +1776,7 @@
     },
     "LINK": {
         "address": "0x514910771af9ca656af840dff83e8264ecf986ca",
-        "decimals": 18,
+        "decimals": null,
         "sushi_address": "0x514910771af9ca656af840dff83e8264ecf986ca"
     },
     "LIT": {
@@ -2279,10 +2283,6 @@
         "address": "0x1614f18fc94f47967a3fbe5ffcd46d4e7da3d787",
         "decimals": null
     },
-    "PAL": {
-        "address": "0xfedae5642668f8636a11987ff386bfd215f942ee",
-        "decimals": null
-    },
     "PAR": {
         "address": "0x68037790a0229e9ce6eaa8a99ea92964106c4703",
         "decimals": null
@@ -2415,10 +2415,6 @@
         "decimals": null,
         "sushi_address": "0x0cec1a9154ff802e7934fc916ed7ca50bde6844e"
     },
-    "POS": {
-        "address": "0xee609fe292128cad03b786dbb9bc2634ccdbe7fc",
-        "decimals": null
-    },
     "POSS": {
         "address": "0x6b193e107a773967bd821bcf8218f3548cfa2503",
         "decimals": null
@@ -2470,7 +2466,7 @@
         "decimals": null
     },
     "PRO": {
-        "address": "0x9041fe5b3fdea0f5e4afdc17e75180738d877a01",
+        "address": "0x226bb599a12c826476e3a771454697ea52e9e220",
         "decimals": null,
         "sushi_address": "0x226bb599a12c826476e3a771454697ea52e9e220"
     },
@@ -2543,10 +2539,6 @@
         "address": "0x4a220e6096b25eadb88358cb44068a3248254675",
         "decimals": null,
         "sushi_address": "0x4a220e6096b25eadb88358cb44068a3248254675"
-    },
-    "QNTU": {
-        "address": "0x4234f63b1d202f6c016ca3b6a0d41d7d85f17716",
-        "decimals": null
     },
     "QRL": {
         "address": "0x697beac28b09e122c4332d163985e8a73121b97f",
@@ -2936,7 +2928,7 @@
     },
     "SUSHI": {
         "address": "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
-        "decimals": 18,
+        "decimals": null,
         "sushi_address": "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2"
     },
     "SVD": {
@@ -3204,7 +3196,7 @@
     },
     "UNI": {
         "address": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
-        "decimals": 18,
+        "decimals": null,
         "sushi_address": "0xcae516aa57d04ebf9b92813050282333f7587d2f"
     },
     "UNIC": {
@@ -3225,7 +3217,7 @@
     },
     "USDC": {
         "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-        "decimals": 6,
+        "decimals": null,
         "sushi_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
     },
     "USDK": {
@@ -3240,7 +3232,7 @@
     },
     "USDT": {
         "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-        "decimals": 6,
+        "decimals": null,
         "sushi_address": "0xd72b0208101d36deaca0feed4f0787bf0ba4c5e6"
     },
     "USE": {
@@ -3624,11 +3616,6 @@
     "cSAI": {
         "address": "0xf5dce57282a584d2746faf1593d3121fcac444dc",
         "decimals": null
-    },
-    "cUNI": {
-        "address": "0x35A18000230DA775CAc24873d00Ff85BccdeD550",
-        "decimals": null,
-        "sushi_address": "0x35a18000230da775cac24873d00ff85bccded550"
     },
     "cUSDC": {
         "address": "0x39aa39c021dfbae8fac545936693ac917d5e7563",
