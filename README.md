@@ -44,6 +44,9 @@ This is the practical part of an investigation project made for the University o
 - [ ] Waultswap
 - [ ] Polycat
 - [ ] Polygon
+- [ ] DFYN
+- [ ] Firebird
+- [ ] EvoMatic
 
 
 ## Building the project

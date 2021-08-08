@@ -55,4 +55,5 @@ The user may obtain the exchange rate of a given pair.
 - [ ] Add tests.
 - [ ] Include Smart Contract integration.
 - [ ] Endpoint for executing transactions at the possible platforms.
-- [ ] Metamask integration. 
+- [ ] Metamask integration.
+- [ ] Mongodb integration + export fixture function.
