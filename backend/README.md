@@ -57,3 +57,4 @@ The user may obtain the exchange rate of a given pair.
 - [ ] Endpoint for executing transactions at the possible platforms.
 - [ ] Metamask integration.
 - [ ] Mongodb integration + export fixture function.
+- [ ] Send email when the seed endpoint finishes [fastapi-email](https://github.com/sabuhish/fastapi-mail)
