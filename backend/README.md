@@ -51,10 +51,10 @@ The user may obtain the exchange rate of a given pair.
 
 ## Next Steps:
 
-- [ ] Allow users to input their wallet addresses.
+- [x] Allow users to input their wallet addresses.
 - [ ] Add tests.
 - [ ] Include Smart Contract integration.
-- [ ] Endpoint for executing transactions at the possible platforms.
+- [ ] Endpoint for executing transactions at the possible platforms (In work)
 - [ ] Metamask integration.
 - [ ] Mongodb integration + export fixture function.
 - [ ] Send email when the seed endpoint finishes [fastapi-email](https://github.com/sabuhish/fastapi-mail)
