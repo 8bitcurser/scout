@@ -31,7 +31,7 @@ This is the practical part of an investigation project made for the University o
 - [x] BE, Create base boilderplate.
 - [x] BE, Add hooks to the exchanges APIS.
 - [x] BE, Add endpoint that accepts a certain crypto pair.
-- [ ] BE, Modify previous endpoint as to receive settings such as: wallet address, dry run, api keys.
+- [x] BE, Modify previous endpoint as to receive settings such as: wallet address, dry run, api keys.
 - [ ] BE, Create Smart contract that handles the transaction.
 - [ ] FE, Add interface that allows easy user input.
 
