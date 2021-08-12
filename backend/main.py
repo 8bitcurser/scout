@@ -1,8 +1,11 @@
 from asyncio import create_task
+from os import environ
 from json import loads
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import Optional
 
 from helpers import create_tokens_fixture, update_tokens_info_fixture
 
@@ -25,8 +28,24 @@ app.add_middleware(
     allow_headers=['*']
 )
 
+class Transaction(BaseModel):
+    '''
+        Transaction data necessary to operate.
+    '''
+    token_1: str
+    token_2: str
+    swap: str
+    amount: float
+    wallet: Optional[str] = environ.get('WALLET')
+    private_key: Optional[str] = environ.get('PRIVATE_KEY')
+
+
 @app.get("/seed")
 async def seed_tokens():
+    '''
+        Creates a seeded fixture with the tokens from etherscan.io and seeds the information
+        with sushiswap addresses.
+    '''
     create_task(create_tokens_fixture())
 
     return {'data': 'Fixtures creation is scheduled, return in around ~5 minutes.'}
@@ -142,5 +161,34 @@ async def price(token_1: str, token_2: str):
             'pancakeswap': f'{token_1} vs {token_2} = {pancake_res}'
         }
     else:
-        res = {'data': 'Could not retrieve tokens, try calling the root endpoint "/"'}
+        res = {'data': 'Could not retrieve tokens, try calling the seed endpoint => "/seed"'}
+    return res
+
+
+@app.post('/trx')
+async def swap(trx: Transaction):
+    '''
+        Performs swap operation between two tokens at a given swap platform
+        for a given amount, expressed on token_1.
+        Test it as:
+        >> curl -X POST -H "Content-Type: application/json" -d\
+        '{"token_1": "test1", "token_2": "test2", "swap": "testswap", "amount": , "wallet":"testaddress", "private_key": "sample"}'\
+        0.0.0.0:8000/trx
+
+        {"tokens":"test1 vs test2","swap_platform":"testswap","amount_to_be_swapped":"10.5 in test1"}
+    '''
+    if trx.wallet and trx.private_key:
+        res = {
+            'tokens': f'{trx.token_1} vs {trx.token_2}',
+            'swap_platform': f'{trx.swap}',
+            'amount_to_be_swapped': f'{trx.amount} in {trx.token_1}'
+        }
+    else:
+        res = {
+            'data': (
+                'Set up a wallet address and its private key at your own .env file, or add the keys'
+                ' wallet and private_key to the BODY of the request.'
+            )
+        }
+
     return res
