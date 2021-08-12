@@ -38,6 +38,7 @@ class Transaction(BaseModel):
     amount: float
     wallet: Optional[str] = environ.get('WALLET')
     private_key: Optional[str] = environ.get('PRIVATE_KEY')
+    dry_run: Optional[bool] = True
 
 
 @app.get("/seed")
@@ -175,14 +176,23 @@ async def swap(trx: Transaction):
         '{"token_1": "test1", "token_2": "test2", "swap": "testswap", "amount": , "wallet":"testaddress", "private_key": "sample"}'\
         0.0.0.0:8000/trx
 
-        {"tokens":"test1 vs test2","swap_platform":"testswap","amount_to_be_swapped":"10.5 in test1"}
+        {"tokens": "test1 vs test2", "swap_platform":"testswap", "amount_to_be_swapped":"10.5 in test1", "dry_run":true}
     '''
     if trx.wallet and trx.private_key:
-        res = {
-            'tokens': f'{trx.token_1} vs {trx.token_2}',
-            'swap_platform': f'{trx.swap}',
-            'amount_to_be_swapped': f'{trx.amount} in {trx.token_1}'
-        }
+        if trx.dry_run:
+            res = {
+                'tokens': f'{trx.token_1} vs {trx.token_2}',
+                'swap_platform': f'{trx.swap}',
+                'amount_to_be_swapped': f'{trx.amount} in {trx.token_1}',
+                'dry_run': True
+            }
+        else:
+            res = {
+                'tokens': f'{trx.token_1} vs {trx.token_2}',
+                'swap_platform': f'{trx.swap}',
+                'amount_to_be_swapped': f'{trx.amount} in {trx.token_1}',
+                'dry_run': False
+            }
     else:
         res = {
             'data': (
