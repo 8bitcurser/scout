@@ -23,6 +23,9 @@ services:
 
   scout-contracts:
     tty: true
+    ports:
+      - "8545:8545"
+    command: npx hardhat node
     build:
       dockerfile: Dockerfile
       context: contracts
