@@ -13,3 +13,20 @@ npx hardhat node
 node scripts/sample-script.js
 npx hardhat help
 ```
+
+## Progress
+
+- [x] Create Boilderplate.
+- [ ] Define smart contract.
+- [ ] Develop smart contract.
+- [ ] Deploy smart contract.
+
+## Setup
+
+#### Run hardhat network
+
+`npx hardhat node`
+
+#### Test contracts
+
+`npx hardhat test`

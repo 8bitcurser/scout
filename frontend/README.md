@@ -1,5 +1,12 @@
 # frontend
 
+## Progress
+
+- [ ] Provide base interface for requesting prices over X ticker.
+- [ ] Integrate with metamask.
+- [ ] Modals that allow users to execute transactions.
+
+
 ## Project setup
 ```
 npm install
