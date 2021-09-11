@@ -19,7 +19,9 @@ This is the practical part of an investigation project made for the University o
 * AlpineLinux (SO of the docker images)
 * Solid + Etherum testnet
 * VueJS
-* Infura for W3 integration
+* Infura for W3js integration
+* Solidity for smartcontracts.
+* Hardhat for Smartcontract testing.
 
 ## Dependencies (So far)
 

@@ -20,3 +20,9 @@ services:
     build:
       dockerfile: Dockerfile
       context: frontend
+
+  scout-contracts:
+    tty: true
+    build:
+      dockerfile: Dockerfile
+      context: contracts
