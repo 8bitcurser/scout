@@ -2,7 +2,7 @@
 
 ## Description
 
-Scout is python + solid project intenteded to survey several open crypto exchange platforms looking for the best buy or sell opportunity for a given pair (e.g USDT/USDC).
+The project intends to survey several open crypto exchange platforms looking for the best buy or sell opportunity for a given pair (e.g USDT/USDC).
 
 ## What it does
 
