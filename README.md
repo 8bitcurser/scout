@@ -60,5 +60,6 @@ This is the practical part of an investigation project made for the University o
 4. Head in your browser to `localhost:8080` the output should be the vue.js home site.
 5. Head in your browser to `localhost:8545` the output should be the following
     `{"jsonrpc":"2.0","id":null,"error":{"code":-32700,"message":"Parse error: Unexpected end of JSON input"}}`
+6. Head in your browser to `localhost:8081` you should be able to see the mongo express interface.
 
 

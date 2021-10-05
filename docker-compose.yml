@@ -1,4 +1,4 @@
-version: '3'
+version: '3.1'
 
 services:
   scout-be:
@@ -11,7 +11,26 @@ services:
       context: backend
     env_file:
       - ./backend/.env
+      - ./.env
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    restart: always
+    env_file:
+      - ./.env
   
+  scout-db:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    env_file:
+      - ./.env
+    depends_on:
+      - mongo
+
   scout-fe:
     tty: true
     ports:
