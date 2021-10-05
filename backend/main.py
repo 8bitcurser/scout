@@ -166,6 +166,7 @@ async def price(token_1: str, token_2: str):
     return res
 
 
+# This will be migrated to Vue.JS front end for simplicity.
 @app.post('/trx')
 async def swap(trx: Transaction):
     '''
