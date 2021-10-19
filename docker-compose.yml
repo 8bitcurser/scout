@@ -31,20 +31,20 @@ services:
     depends_on:
       - mongo
 
-  scout-fe:
-    tty: true
-    ports:
-      - "8080:8080"
-    command: npm run serve
-    build:
-      dockerfile: Dockerfile
-      context: frontend
+  # scout-fe:
+  #   tty: true
+  #   ports:
+  #     - "8080:8080"
+  #   command: npm run serve
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: frontend
 
-  scout-contracts:
-    tty: true
-    ports:
-      - "8545:8545"
-    command: npx hardhat node
-    build:
-      dockerfile: Dockerfile
-      context: contracts
+  # scout-contracts:
+  #   tty: true
+  #   ports:
+  #     - "8545:8545"
+  #   command: npx hardhat node
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: contracts

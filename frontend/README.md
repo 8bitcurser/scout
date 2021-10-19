@@ -3,7 +3,8 @@
 ## Progress
 
 - [ ] Provide base interface for requesting prices over X ticker.
-- [ ] Integrate with metamask.
+- [ ] Metamask integration.
+- [ ] Include Smart Contract integration.
 - [ ] Modals that allow users to execute transactions.
 
 
