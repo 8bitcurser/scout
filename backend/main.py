@@ -3,7 +3,7 @@ from asyncio import create_task
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from helpers import create_tokens_fixture
+from helpers import database_seed
 from logic import get_price
 from schemas import Transaction
 
@@ -27,8 +27,8 @@ async def seed_tokens():
         Creates a seeded fixture with the tokens from etherscan.io and seeds the information
         with sushiswap addresses.
     '''
-    create_task(create_tokens_fixture())
-    return {'data': 'Fixtures creation is scheduled, return in around ~5 minutes.'}
+    create_task(database_seed())
+    return {'data': 'Database seeding is scheduled, return in around ~2 minutes.'}
 
 @app.get('/price/{token_1}/{token_2}')
 async def price(token_1: str, token_2: str):

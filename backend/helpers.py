@@ -2,6 +2,7 @@ from json import loads, dumps
 from random import choice
 from time import sleep
 
+from db import collection
 from integrations.etherscan import Ether
 from integrations.sushi import Sushi
 
@@ -23,7 +24,7 @@ async def update_tokens_info_fixture(
     return tokens_dict
 
 
-async def create_tokens_fixture():
+async def database_seed():
     ether = Ether()
     sushi = Sushi()
     main_page = ether.get_page()
@@ -50,5 +51,4 @@ async def create_tokens_fixture():
                 )
             )
         sushi.get_all_tokens()
-    print('Finished loading fixture')
     return {'data': 'Finished loading fixture'}
