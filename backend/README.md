@@ -6,6 +6,13 @@
 4. Build requirements `pip3 -m requirements.txt`
 5. Run project from within backend folder `uvicorn main:app --reload`
 
+### Example .env file
+
+```
+ME_CONFIG_MONGODB_URL=mongodb://mongo:27017
+PROVIDER=https://mainnet.infura.io/v3/{hash}
+```
+
 
 ## Current endpoints
 
@@ -55,5 +62,5 @@ The user may obtain the exchange rate of a given pair.
 - [x] Mongodb integration
 - [ ] Add tests.
 - [ ] Include Smart Contract integration.
-- [ ] Endpoint for executing transactions at the possible platforms (In work)
+- [ ] Endpoint for executing transactions at the possible platforms (In progress)
 - [ ] Send email when the seed endpoint finishes [fastapi-email](https://github.com/sabuhish/fastapi-mail)

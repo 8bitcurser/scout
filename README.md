@@ -44,12 +44,7 @@ This is the practical part of an investigation project made for the University o
 - [x] Sushiswap
 - [x] Uniswap
 - [x] Pancakeswap
-- [ ] Waultswap
-- [ ] Polycat
-- [ ] Polygon
-- [ ] DFYN
-- [ ] Firebird
-- [ ] EvoMatic
+
 
 
 ## Building the project

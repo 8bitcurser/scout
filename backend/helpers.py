@@ -13,14 +13,14 @@ async def update_tokens_info_fixture(
     tokens_dict[token_1_symbol][key] = val_1
     tokens_dict[token_2_symbol][key] = val_2
 
-    with open('fixtures_tokens.json', 'w') as fix:
-        fix.write(
-            dumps(
-                tokens_dict,
-                sort_keys=True,
-                indent=4
-            )
-        )
+    collection.update_one(
+        {'ticker': token_1_symbol},
+        {'$set': {key: val_1}}
+    )
+    collection.update_one(
+        {'ticker': token_2_symbol},
+        {'$set': {key: val_2}}
+    )
     return tokens_dict
 
 
@@ -42,13 +42,9 @@ async def database_seed():
             else:
                 break
 
-        with open('fixtures_tokens.json', 'w') as fix:
-            fix.write(
-                dumps(
-                    ether.tokens,
-                    sort_keys=True,
-                    indent=4
-                )
-            )
+        for token in ether.tokens:
+            record = ether.tokens[token]
+            record.update({'ticker': token})
+            collection.insert_one(record)
         sushi.get_all_tokens()
     return {'data': 'Finished loading fixture'}

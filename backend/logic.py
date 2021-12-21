@@ -1,6 +1,8 @@
 from json import loads
 from asyncio import create_task
+from typing import Collection
 
+from db import collection
 from helpers import update_tokens_info_fixture
 from integrations.pancake import Pancake
 from integrations.sushi import Sushi
@@ -23,8 +25,8 @@ async def get_price(token_1: str, token_2: str):
     sanitized_addresses = cached_fixture
 
     if sanitized_addresses:
-        token_1_settings = sanitized_addresses.get(token_1, {})
-        token_2_settings = sanitized_addresses.get(token_2, {})
+        token_1_settings = collection.find_one({'ticker': token_1})
+        token_2_settings = collection.find_one({'ticker': token_2})
         
         token_1_addr = token_1_settings.get('address')
         token_2_addr = token_2_settings.get('address')

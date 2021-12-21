@@ -16,18 +16,17 @@ services:
       - mongo
 
   mongo:
-    image: mongo
-    restart: always
-    env_file:
-      - ./.env
+    image: mongo:latest
+    ports:
+      - 27017:27017
   
   scout-db:
     image: mongo-express
     restart: always
     ports:
       - 8081:8081
-    env_file:
-      - ./.env
+    environment:
+      - MONGO_URI=mongodb://mongo:27017
     depends_on:
       - mongo
 
